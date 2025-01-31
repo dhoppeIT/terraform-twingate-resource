@@ -10,9 +10,22 @@ Copy and paste the following code snippet to your Terraform configuration,
 specify the required variables and run the command `terraform init`.
 
 ```hcl
+module "twingate_remote_network" {
+  source  = "gitlab.com/terraform-child-modules-48151/terraform-twingate-remote_network/local"
+  version = "1.0.0"
+
+  name = "example-network"
+
+  location = "ON_PREMISE"
+}
+
 module "twingate_resource" {
   source  = "gitlab.com/terraform-child-modules-48151/terraform-twingate-resource/local"
   version = "1.0.0"
+
+  name              = "example-resource"
+  address           = "example.com"
+  remote_network_id = module.twingate_remote_network.id
 }
 ```
 
