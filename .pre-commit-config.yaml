@@ -37,7 +37,7 @@ repos:
         stages: ['pre-commit']
       - id: terraform_trivy
         args:
-          - --args=--ignorefile=.trivyignore.yaml
+          - --args=--ignorefile=__GIT_WORKING_DIR__/.trivyignore.yaml
           - --args=--report=summary
           - --args=--skip-dirs='**/.terraform'
         stages: ['pre-commit']
