@@ -14,9 +14,8 @@ resource "twingate_resource" "this" {
     for_each = length(var.access_group) > 0 ? [var.access_group] : []
 
     content {
-      group_id                           = lookup(access_group.value, "group_id", null)
-      security_policy_id                 = lookup(access_group.value, "security_policy_id", null)
-      usage_based_autolock_duration_days = lookup(access_group.value, "usage_based_autolock_duration_days", null)
+      group_id           = lookup(access_group.value, "group_id", null)
+      security_policy_id = lookup(access_group.value, "security_policy_id", null)
     }
   }
 
