@@ -58,8 +58,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_access_group"></a> [access\_group](#input\_access\_group) | Restrict access to certain group | `map(any)` | `{}` | no |
-| <a name="input_access_policy"></a> [access\_policy](#input\_access\_policy) | Restrict access according to JIT access policy | `map(any)` | `{}` | no |
+| <a name="input_access_group"></a> [access\_group](#input\_access\_group) | Restrict access to certain group | ```object({ group_id = string security_policy_id = optional(string) usage_based_autolock_duration_days = optional(number) access_policy = optional(object({ mode = string approval_mode = optional(string) duration = optional(string) })) })``` | `null` | no |
+| <a name="input_access_policy"></a> [access\_policy](#input\_access\_policy) | Restrict access according to JIT access policy | ```object({ mode = string approval_mode = optional(string) duration = optional(string) })``` | `null` | no |
 | <a name="input_access_service"></a> [access\_service](#input\_access\_service) | Restrict access to certain service account | `map(any)` | `{}` | no |
 | <a name="input_address"></a> [address](#input\_address) | The Resource's IP/CIDR or FQDN/DNS zone | `string` | n/a | yes |
 | <a name="input_alias"></a> [alias](#input\_alias) | Set a DNS alias address for the Resource | `string` | `null` | no |

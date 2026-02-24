@@ -12,16 +12,26 @@ resource "twingate_resource" "this" {
   tags                        = var.tags
 
   dynamic "access_group" {
-    for_each = length(var.access_group) > 0 ? [var.access_group] : []
+    for_each = var.access_group != null ? [var.access_group] : []
 
     content {
-      group_id           = lookup(access_group.value, "group_id", null)
-      security_policy_id = lookup(access_group.value, "security_policy_id", null)
+      group_id           = access_group.value.group_id
+      security_policy_id = access_group.value.security_policy_id
+
+      dynamic "access_policy" {
+        for_each = access_group.value.access_policy != null ? [access_group.value.access_policy] : []
+
+        content {
+          mode          = access_policy.value.mode
+          approval_mode = access_policy.value.approval_mode
+          duration      = access_policy.value.duration
+        }
+      }
     }
   }
 
   dynamic "access_policy" {
-    for_each = length(var.access_policy) > 0 ? [var.access_policy] : []
+    for_each = var.access_policy != null ? [var.access_policy] : []
 
     content {
       mode          = access_policy.value.mode

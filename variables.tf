@@ -14,14 +14,27 @@ variable "remote_network_id" {
 }
 
 variable "access_group" {
-  type        = map(any)
-  default     = {}
+  type = object({
+    group_id                           = string
+    security_policy_id                 = optional(string)
+    usage_based_autolock_duration_days = optional(number)
+    access_policy = optional(object({
+      mode          = string
+      approval_mode = optional(string)
+      duration      = optional(string)
+    }))
+  })
+  default     = null
   description = "Restrict access to certain group"
 }
 
 variable "access_policy" {
-  type        = map(any)
-  default     = {}
+  type = object({
+    mode          = string
+    approval_mode = optional(string)
+    duration      = optional(string)
+  })
+  default     = null
   description = "Restrict access according to JIT access policy"
 }
 
