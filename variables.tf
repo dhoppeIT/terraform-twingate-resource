@@ -19,6 +19,12 @@ variable "access_group" {
   description = "Restrict access to certain group"
 }
 
+variable "access_policy" {
+  type        = map(any)
+  default     = {}
+  description = "Restrict access according to JIT access policy"
+}
+
 variable "access_service" {
   type        = map(any)
   default     = {}

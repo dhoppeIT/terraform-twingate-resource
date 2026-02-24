@@ -20,6 +20,16 @@ resource "twingate_resource" "this" {
     }
   }
 
+  dynamic "access_policy" {
+    for_each = length(var.access_policy) > 0 ? [var.access_policy] : []
+
+    content {
+      mode          = access_policy.value.mode
+      approval_mode = access_policy.value.approval_mode
+      duration      = access_policy.value.duration
+    }
+  }
+
   dynamic "access_service" {
     for_each = length(var.access_service) > 0 ? [var.access_service] : []
 
