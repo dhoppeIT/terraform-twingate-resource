@@ -70,6 +70,7 @@ No modules.
 | <a name="input_protocols"></a> [protocols](#input\_protocols) | Restrict access to certain protocols and ports | ```object( { allow_icmp = optional(bool) tcp = optional(object( { policy = optional(string) ports = optional(list(string)) } )) udp = optional(object( { policy = optional(string) ports = optional(list(string)) } )) } )``` | `{}` | no |
 | <a name="input_remote_network_id"></a> [remote\_network\_id](#input\_remote\_network\_id) | Remote Network ID where the Resource lives | `string` | n/a | yes |
 | <a name="input_security_policy_id"></a> [security\_policy\_id](#input\_security\_policy\_id) | The ID of a twingate\_security\_policy to set as this Resource's Security Policy | `string` | `"Default Policy"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of key-value pair tags to set on this resource | `map(string)` | `{}` | no |
 
 ## Outputs
 

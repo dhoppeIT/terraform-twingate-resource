@@ -82,3 +82,9 @@ variable "security_policy_id" {
   default     = "Default Policy"
   description = "The ID of a twingate_security_policy to set as this Resource's Security Policy"
 }
+
+variable "tags" {
+  type        = map(string)
+  default     = {}
+  description = "A map of key-value pair tags to set on this resource"
+}

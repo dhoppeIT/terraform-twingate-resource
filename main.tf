@@ -9,6 +9,7 @@ resource "twingate_resource" "this" {
   is_browser_shortcut_enabled = var.is_browser_shortcut_enabled
   is_visible                  = var.is_visible
   security_policy_id          = data.twingate_security_policy.this.id
+  tags                        = var.tags
 
   dynamic "access_group" {
     for_each = length(var.access_group) > 0 ? [var.access_group] : []
