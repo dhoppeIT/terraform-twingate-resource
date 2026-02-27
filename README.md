@@ -13,7 +13,7 @@ specify the required variables and run the command `terraform init`.
 module "twingate_remote_network" {
   source  = "gitlab.com/terraform-child-modules-48151/terraform-twingate-remote-network/local"
   <!-- renovate: datasource=gitlab-tags depName=terraform-child-modules-48151/terraform-twingate-remote_network extractVersion=^v(?<version>.*)$ -->
-  version = "1.0.0"
+  version = "1.1.0"
 
   name = "example-network"
 
