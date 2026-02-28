@@ -23,7 +23,7 @@ module "twingate_remote_network" {
 module "twingate_resource" {
   source  = "gitlab.com/terraform-child-modules-48151/terraform-twingate-resource/local"
   <!-- renovate: datasource=gitlab-tags depName=terraform-child-modules-48151/terraform-twingate-resource extractVersion=^v(?<version>.*)$ -->
-  version = "1.0.0"
+  version = "2.0.0"
 
   name              = "example-resource"
   address           = "example.com"
