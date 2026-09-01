@@ -15,9 +15,8 @@ variable "remote_network_id" {
 
 variable "access_group" {
   type = object({
-    group_id                           = string
-    security_policy_id                 = optional(string)
-    usage_based_autolock_duration_days = optional(number)
+    group_id           = string
+    security_policy_id = optional(string)
     access_policy = optional(object({
       mode          = string
       approval_mode = optional(string)
